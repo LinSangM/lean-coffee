@@ -5,7 +5,7 @@ class Timer extends Component {
   socketServer = new SocketServer();
   timer = null;
   state = {
-    second: this.props.second
+    second: ""
   };
   componentDidMount = () => {
     !this.props.reset || this.props.reset(this.resetTimer);
@@ -15,8 +15,13 @@ class Timer extends Component {
   syncTimer = () => {
     this.socketServer.setupClient.on("update timer", timer => {
       timer > 0 || this.timeout();
-      this.setState({ second: timer })
+      this.setState({ second: this.formatSecToMin(timer) });
     });
+  };
+  formatSecToMin = (second) => {
+    var date = new Date(null);
+    date.setSeconds(second);
+    return date.toISOString().substr(14, 5);
   };
   resetTimer = () => {
     this.socketServer.updateTimer(this.props.second);
@@ -28,7 +33,7 @@ class Timer extends Component {
   };
   componentWillUnmount = () => {
     this.socketServer.setupClient.close();
-  }
+  };
   render() {
     return <div>{this.state.second}</div>;
   }

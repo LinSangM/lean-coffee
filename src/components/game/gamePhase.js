@@ -6,7 +6,7 @@ import SocketServer from "../socketServer";
 
 class GamePhase extends Component {
   socketServer = new SocketServer();
-  second = 5;
+  second = 180;
   state = {
     currentTopicIndex: 0,
     isThumbsTime: false

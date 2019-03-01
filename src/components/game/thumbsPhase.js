@@ -4,7 +4,7 @@ import SocketServer from "../socketServer";
 
 class ThumbsPhase extends Component {
   socketServer = new SocketServer();
-  second = 10;
+  second = 15;
   thumbs = 0;
   isContinue = false;
   thumbsUp = () => {
