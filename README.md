@@ -10,7 +10,7 @@ If you want to run it and share with different client side (different computer, 
 
 ## Before you start
 
-Git clone the repository and run npm install in the civet-v2 folder. 
+Git clone the repository and run npm install in the root folder. 
 
 This is app is a labatory idea, it is not complete yet.. If you like it, check out the to do list and have fun!
 
