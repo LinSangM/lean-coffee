@@ -30,5 +30,12 @@ To do to make this app even better:
 * Add css to beautify the UI
 * Add Redux to manage one room state. Sync state to NodeJS server throught the Redux. This will be cool. (today, it seperates in different components) 
 * Implement rooms system, allow users to create different room and join different room.
+* Fix more known issues..... :P
 
+## Known Issues, Or should we call it challenges ?
+
+* Sleep screen problem on mobile devices. It causes the Socket.io lost connection but hard to reconnect while screen wakes up. One of the optional idea is to implement the page visibility api.(https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) 
+
+## Special Thanks
+Tiseno (https://github.com/Tiseno)
 
