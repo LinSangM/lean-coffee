@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContinueButton = ({previousTopic, nextTopic}) => {
+export const ContinueButton = ({previousTopic, nextTopic}) => {
   return (
     <div>
       <button onClick={()=>{previousTopic()}}>Previous Topic</button>
@@ -8,5 +8,3 @@ const ContinueButton = ({previousTopic, nextTopic}) => {
     </div>
   );
 };
-
-export default ContinueButton;
