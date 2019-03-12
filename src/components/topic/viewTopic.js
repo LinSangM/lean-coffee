@@ -1,6 +1,6 @@
 import React from "react";
 
-const ViewTopic = ({ topics, deleteTopic }) => {
+export const ViewTopic = ({ topics, deleteTopic }) => {
   const topicList = topics.length ? (
     topics.map(topic => {
       return (
@@ -23,5 +23,3 @@ const ViewTopic = ({ topics, deleteTopic }) => {
   );
   return <div>{topicList}</div>;
 };
-
-export default ViewTopic;

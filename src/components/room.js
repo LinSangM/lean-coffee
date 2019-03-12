@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import GamePhase from "./game/gamePhase";
-import TopicPhase from "./topic/topicPhase";
-import SocketServer from "./socketServer";
+import { GamePhase } from "./game/gamePhase";
+import { TopicPhase } from "./topic/topicPhase";
+import { SocketServer } from "./socketServer";
 
-class Room extends Component {
+export class Room extends Component {
   socketServer = new SocketServer();
   state = {
     gameIsOn: false,
@@ -30,7 +30,7 @@ class Room extends Component {
   }
   syncGamePhaseState = () => {
     this.socketServer.setupClient.on("update game phase state", state => {
-      this.setState({gameIsOn:state});
+      this.setState({ gameIsOn: state });
     });
   }
   syncUpdateTopics = () => {
@@ -42,12 +42,12 @@ class Room extends Component {
     let phase = this.state.gameIsOn ? (
       <GamePhase topics={this.state.topics} finishGame={this.finishGame} />
     ) : (
-      <TopicPhase
-        topics={this.state.topics}
-        updateTopics={this.updateTopics}
-        startGame={this.startGame}
-      />
-    );
+        <TopicPhase
+          topics={this.state.topics}
+          updateTopics={this.updateTopics}
+          startGame={this.startGame}
+        />
+      );
     return (
       <div>
         <h1>Coffee Time</h1>
@@ -56,5 +56,3 @@ class Room extends Component {
     );
   }
 }
-
-export default Room;

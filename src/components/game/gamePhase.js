@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import ContinueButton from "./continueButton";
-import Timer from "./timer";
-import ThumbsPhase from "./thumbsPhase";
-import SocketServer from "../socketServer";
+import { ContinueButton } from "./continueButton";
+import { Timer } from "./timer";
+import { ThumbsPhase } from "./thumbsPhase";
+import { SocketServer } from "../socketServer";
 
-class GamePhase extends Component {
+export class GamePhase extends Component {
   socketServer = new SocketServer();
   second = 180;
   state = {
@@ -22,17 +22,17 @@ class GamePhase extends Component {
     return index + 1 >= this.props.topics.length
       ? this.currentTopic(index) && this.props.finishGame()
       : (() => {
-          this.socketServer.updateCurrentTopicIndex(index + 1);
-          this.state.isThumbsTime || this.resetTopicTimer();
-        })();
+        this.socketServer.updateCurrentTopicIndex(index + 1);
+        this.state.isThumbsTime || this.resetTopicTimer();
+      })();
   };
   previousTopic = () => {
     const index = this.state.currentTopicIndex;
     return index - 1 >= 0
       ? (() => {
-          this.socketServer.updateCurrentTopicIndex(index - 1);
-          this.state.isThumbsTime || this.resetTopicTimer();
-        })()
+        this.socketServer.updateCurrentTopicIndex(index - 1);
+        this.state.isThumbsTime || this.resetTopicTimer();
+      })()
       : this.currentTopic(index);
   };
   componentDidMount = () => {
@@ -66,14 +66,14 @@ class GamePhase extends Component {
         }}
       />
     ) : (
-      <Timer
-        second={this.second}
-        timeout={() => {
-          this.socketServer.updateThumbsPhaseState(true);
-        }}
-        reset={reset => (this.resetTopicTimer = reset)}
-      />
-    );
+        <Timer
+          second={this.second}
+          timeout={() => {
+            this.socketServer.updateThumbsPhaseState(true);
+          }}
+          reset={reset => (this.resetTopicTimer = reset)}
+        />
+      );
     return (
       <div>
         <div>
@@ -91,5 +91,3 @@ class GamePhase extends Component {
     );
   }
 }
-
-export default GamePhase;

@@ -1,6 +1,6 @@
 import socketIOClient from "socket.io-client";
 
-class SocketServer {
+export class SocketServer {
   endpoint = "http://localhost:4000";
   constructor() {
     this.setupClient = socketIOClient(this.endpoint);
@@ -27,5 +27,3 @@ class SocketServer {
     };
   }
 }
-
-export default SocketServer;

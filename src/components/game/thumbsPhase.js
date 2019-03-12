@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Timer from "./timer";
-import SocketServer from "../socketServer";
+import {Timer} from "./timer";
+import {SocketServer} from "../socketServer";
 
-class ThumbsPhase extends Component {
+export class ThumbsPhase extends Component {
   socketServer = new SocketServer();
   second = 15;
   thumbs = 0;
@@ -60,5 +60,3 @@ class ThumbsPhase extends Component {
     );
   }
 }
-
-export default ThumbsPhase;

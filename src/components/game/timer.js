@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import SocketServer from "../socketServer";
+import { SocketServer } from "../socketServer";
 
-class Timer extends Component {
+export class Timer extends Component {
   socketServer = new SocketServer();
   timer = null;
   state = {
@@ -38,5 +38,3 @@ class Timer extends Component {
     return <div>{this.state.second}</div>;
   }
 }
-
-export default Timer;

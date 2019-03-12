@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class AddTopic extends Component {
+export class AddTopic extends Component {
   state = {
     content: ""
   };
@@ -34,5 +34,3 @@ class AddTopic extends Component {
     );
   }
 }
-
-export default AddTopic;
